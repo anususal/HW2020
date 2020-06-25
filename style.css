@@ -42,8 +42,12 @@ button{
     padding: 0px;
     width: 1600px;
     height: 600px;
+    text-align: center;
+  
 }
 
-.task.done >label{
+.task.done > label{
     text-decoration: line-through;
+    color: cornsilk;
+    
 }

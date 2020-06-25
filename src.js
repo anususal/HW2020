@@ -40,13 +40,24 @@ function renderTaskItems(){
     for(let i=0;i<tasks.length;i++){
         let task=tasks[i];
         let itemE1=document.createElement("div");
-       // itemE1.className = "task";
+        itemE1.className = "task";
 
         let doneE1=document.createElement("input");
         doneE1.type="checkbox";
-       //doneE1.checked=task.done; 
+        doneE1.checked=task.done; 
+        if(task.done){
+            itemE1.classList.add("done");
+        } else{
+            itemE1.classList.remove("done");
+        }
+
         doneE1.onchange=(e) =>{
-            task.done=e.target.checked;    
+            task.done=e.target.checked; 
+            if(task.done){
+                itemE1.classList.add("done");
+            } else{
+                itemE1.classList.remove("done");
+            }
         }
         itemE1.append(doneE1);
 
@@ -54,12 +65,33 @@ function renderTaskItems(){
         titleE1.innerText=task.title;
         itemE1.append(titleE1);
 
+        
+
+
+        let upE1=document.createElement("button");
+        upE1.innerText="↿";
+        upE1.onclick=()=>{
+           
+            
+        }
+        itemE1.append(upE1);
+
+
+        let downE1=document.createElement("button");
+        downE1.innerText="⇂";
+        downE1.onclick=()=>{
+            //
+        }
+        itemE1.append(downE1);
+
         let cancelE1=document.createElement("button");
         cancelE1.innerText="X";
         cancelE1.onclick=()=>{
             tasks.splice(i,1);
             renderTaskItems();
         }
+
+        
         itemE1.append(cancelE1);
 
         itemsE1.append(itemE1);
